@@ -1,4 +1,4 @@
-package tests;
+package tests.webportal.login;
 
 import drivers.WebDriverFactory;
 import io.qameta.allure.*;
@@ -30,11 +30,14 @@ public class LoginTest {
                 .LoginPage(loginData.getJsonData("username"), loginData.getJsonData("password"))
                 .isLoggedIn("https://www.saucedemo.com/v1/inventory.html");
     }
-
+// behavioral-bases hire
+    @Epic("Web Portal")
+    @Feature("Login Feature")
+    @Story("In Valid Test Cases")
     @Test
     public void invalidLoginTest() {
         Allure.getLifecycle().updateTestCase( testResult ->
-                testResult.setName("Valid Login"));
+                testResult.setName("Invalid Login"));
         new LoginPage(driver)
                 .LoginPage(loginData.getJsonData("username"), loginData.getJsonData("invalid-password"))
                 .isLoggedIn("https://www.saucedemo.com/v1/");
