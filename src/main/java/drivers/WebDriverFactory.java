@@ -19,6 +19,9 @@ public class WebDriverFactory {
         driverThreadLocal.set(driver);
         return driverThreadLocal.get();
     }
+    public static WebDriver get() {
+        return driverThreadLocal.get();
+    }
     public static void quitDriver(){
         driverThreadLocal.get().quit();
     }

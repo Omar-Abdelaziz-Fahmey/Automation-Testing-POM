@@ -4,6 +4,7 @@ import drivers.WebDriverFactory;
 import org.testng.*;
 import utils.AllureUtils;
 import utils.PropertyReader;
+import utils.ScreenShotUtils;
 
 public class TestNGListeners implements IInvokedMethodListener, ITestListener, IExecutionListener {
 
@@ -15,6 +16,8 @@ public class TestNGListeners implements IInvokedMethodListener, ITestListener, I
 
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         if (method.isTestMethod()) {
+            ScreenShotUtils.takeScreenshot(WebDriverFactory.get(),testResult.getName());
+
             System.out.println(method.getTestMethod().getMethodName() + " finished");
         }
     }
