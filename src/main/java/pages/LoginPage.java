@@ -1,6 +1,7 @@
 package pages;
 
 import bots.Actionsbot;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -26,7 +27,7 @@ public class LoginPage {
 
 
     //actions
-
+    @Step("Login to web portal with username:{user} and password: {pass}")
     public LoginPage LoginPage(String user, String pass) {
         actionsbot.type(userName,user);
         actionsbot.type(password,pass);
@@ -34,7 +35,7 @@ public class LoginPage {
         return this;
     }
 
-
+    @Step("Validate that the user is logged in with {expectedUrl}")
     public HomePage isLoggedIn(String expectedUrl) {
         driver.getCurrentUrl().equals(expectedUrl);
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl, "User is not logged in!");

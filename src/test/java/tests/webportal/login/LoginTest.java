@@ -21,7 +21,6 @@ public class LoginTest {
     @Owner("Omar")
     @Severity(SeverityLevel.CRITICAL)
     @Link("www.google.com")
-
     @Test
     public void validLoginTest() {
         Allure.getLifecycle().updateTestCase( testResult ->
