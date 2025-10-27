@@ -42,7 +42,9 @@ public class TestNGListeners implements IInvokedMethodListener, ITestListener, I
     }
 
     public void onExecutionFinish() {
+
         System.out.println("Execution finished");
+        AllureUtils.setAllureEnvironment();
 
     }
 
